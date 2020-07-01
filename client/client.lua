@@ -94,7 +94,7 @@ Citizen.CreateThread(function()
 			for id = 0, 64 do
 				if killer == GetPlayerPed(id) then
 					killername = GetPlayerName(id)
-				end				
+				end
 			end
 			if killer == playerPed then
 				TriggerServerEvent('playerDied',0,0,nil)
@@ -112,7 +112,7 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
- 
+
 	while true do
 		Citizen.Wait(0)
 		local playerped = GetPlayerPed(-1)
