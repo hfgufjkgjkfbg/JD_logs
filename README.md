@@ -39,7 +39,7 @@ local webhooks = {
 	deaths = "<DISCORD_WEBHOOK>",
 	shooting = "<DISCORD_WEBHOOK>",
 	resources = "<DISCORD_WEBHOOK>",
-	<YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>", <------
+	<WEBHOOK_CHANNEL> = "<DISCORD_WEBHOOK>", <------
 }
 
 ```
