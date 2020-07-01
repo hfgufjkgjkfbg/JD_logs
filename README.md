@@ -23,7 +23,7 @@ This is a server log script for FiveM, which is used to log certain actions that
 ensure logs
 ```
 
-### Adding more logs
+# Adding more logs
 
 - Add the following code to your existing resource where you execude the code
 ```
@@ -44,5 +44,4 @@ local webhooks = {
 
 ```
 
-# Support
-https://discord.gg/m4BvmkG
+# My Discord: https://discord.gg/m4BvmkG
