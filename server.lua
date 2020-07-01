@@ -1,17 +1,19 @@
+local avatar = "https://gyazo.com/3b6671e49b91493136d70f09795f5cfd.png" -- Bot Avatar
+local communtiylogo = "" -- Icon in bottom left off the embed
 local webhooks = {
-    all = "https://discordapp.com/api/webhooks/727684801250984037/jOkljlvIRjZM-DasusORRfdXPBClPpyictP4EM3EK7i8ZMka-Fc1c8An9UqB4lRyLqn3",
-	chat = "https://discordapp.com/api/webhooks/727684994398683207/a7RAuGG37gydROehu1-iGZ1KzPFT_guOEZ5mo6feut1WYtLrT7LOVbvegKI3jODgOAAb",
-    joins = "https://discordapp.com/api/webhooks/727685095510769684/ED8cREYpN2se6Polc777IkMG3zjtVh8VCCWqmBiavcTMeVlZfBIbOnCBXeDHFCjvx_DY",
-    leaving = "https://discordapp.com/api/webhooks/727685095510769684/ED8cREYpN2se6Polc777IkMG3zjtVh8VCCWqmBiavcTMeVlZfBIbOnCBXeDHFCjvx_DY",
-    deaths = "https://discordapp.com/api/webhooks/727685380425515028/c44MKUrxoRccssAvLFdapceizZ9Nfn_3-qQ_TmZEYFQLWx1UGNpZLL5cJArcf93hpYf-",
-    --shooting = "https://discordapp.com/api/webhooks/727685501083189259/zITFCFWYJCvlPv9lknOb3MjHruOK-wPgaQ09Ozi1pBwI4DHitv_DLpE0cC7Eujln5awT",
-    me = "https://discordapp.com/api/webhooks/727685558947807293/E-qbOn8ohZdhazLc2OqG9fD8x8P_5I3OVdePoaFwOCHCN5PqnjYAbN1dA04O9S1kQ2NT",
-	gme = "https://discordapp.com/api/webhooks/727685633962934324/BiaSibYA9zedzNGZf_iFq4dhcKHgLq34J0L2TTuSR8q83IiEx_c62WVP_x4OJq7xzJU7",
-	twot = "https://discordapp.com/api/webhooks/727685730654093313/VIxBbSL9cCXnojc4V0XuBn6_GwAr5pB5R_92qpj8A8My7kQtt5Q1zfIV22Wdtiy_Rl-B",
-	ooc = "https://discordapp.com/api/webhooks/727686025433972767/j648kcsyKr7L8fFvM9kszW0haiodP8bb7fzX7ero3BJxnZINZX06DHLPSqSUyiGg9pPq",
-	darkweb = "https://discordapp.com/api/webhooks/727686136251547678/vNSw6h6pLafKdgkALLAMLhqS1DVf-_jeLgcVx-sJ8Uk9twUeSJYkspJxo5Y-zp0f-nS5",
-    heal = "https://discordapp.com/api/webhooks/727685440542474302/-yhkdbBTSOf1Ktg9tquv7aN2T2ifC2dECtnRCKvuhjeLlyWphOvsXK2kxi66-MrzYcew",
-    resources = "https://discordapp.com/api/webhooks/727685942738944070/cGLkk3OsMn9eBVuEH9Zjy9WglfEVYrKqz447UohamovPJKabZsgFylZBdkTEfnhU3V8m",
+	all = "<DISCORD_WEBHOOK>",
+	chat = "<DISCORD_WEBHOOK>",
+	joins = "<DISCORD_WEBHOOK>",
+	leaving = "<DISCORD_WEBHOOK>",
+	deaths = "<DISCORD_WEBHOOK>",
+	shooting = "<DISCORD_WEBHOOK>",
+	resources = "<DISCORD_WEBHOOK>",
+	
+	-- You can add more logs by using exports in other resources
+	-- When the action is done call the function below in the script to send the information to JD_logs
+	-- exports.JD_logs:discord('<MESSAGE_YOU_WANT_TO_POST_IN_THE_EMBED>', '1752220', '<WEBHOOK_CHANNEL>')
+	-- Then create a webhook for the action you just executed
+	-- <YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>",
 }
 
 function sanitize(string) 
@@ -27,58 +29,67 @@ AddEventHandler("discordLogs", function(message, color, channel)
     discordLog(message, color, channel)
 end)
 
+-- Get exports from server side
 exports('discord', function(message, color, channel)
     discordLog(message, color, channel)
 end)
 
+-- Sending message to the All Logs channel and to the channel it has listed
 function discordLog(message, color, channel)
-	PerformHttpRequest(webhooks['all'], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = "https://gyazo.com/3b6671e49b91493136d70f09795f5cfd.png"}), { ['Content-Type'] = 'application/json' })
-	PerformHttpRequest(webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = "https://gyazo.com/3b6671e49b91493136d70f09795f5cfd.png"}), { ['Content-Type'] = 'application/json' })    
+	PerformHttpRequest(webhooks['all'], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = avatar}), { ['Content-Type'] = 'application/json' })
+	PerformHttpRequest(webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = avatar}), { ['Content-Type'] = 'application/json' })    
 end
 
 -- Event Handlers
 
+-- Send message when Player connects to the server.
 AddEventHandler("playerConnecting", function(name, setReason, deferrals)
-    discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.', '3066993', 'joins')
+    discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.', '3066993', 'joins') -- sending to joins channel
 end)
 
+-- Send message when Player disconnects from the server
 AddEventHandler('playerDropped', function(reason)
-    discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')', '15158332', 'leaving')
+    discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')', '15158332', 'leaving') -- sending to leaving channel
 end)
 
+-- Send message when Player creates a chat message (Does not show commands)
 AddEventHandler('chatMessage', function(source, name, msg)
-    discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``', '1146986', 'chat')
+    discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``', '1146986', 'chat') -- sending to chat channel
 end)
 
-
+-- Send message when Player died (including reason/killer check)
 RegisterServerEvent('playerDied')
 AddEventHandler('playerDied',function(killer,reason,cause)
 	if killer == "**Invalid**" then
 		reason = 2
 	end
-	if reason == 0 then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.', '10038562', 'deaths')
-	elseif reason == 1 then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')', '10038562', 'deaths')
-	else
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.', '10038562', 'deaths')
+	if reason == 0 then  -- Suicide
+        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.', '10038562', 'deaths') -- sending to deaths channel
+	elseif reason == 1 then -- Killed by other player
+        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')', '10038562', 'deaths') -- sending to deaths channel
+	else -- When gets killed by something else (like getting run over by a car)
+        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.', '10038562', 'deaths') -- sending to deaths channel
 	end
 end)
 
---RegisterServerEvent('playerShotWeapon')
---AddEventHandler('playerShotWeapon', function(weapon)
---   discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon , '7419530', 'shooting')
---end)
+-- Send message when Player fires a weapon
+RegisterServerEvent('playerShotWeapon')
+AddEventHandler('playerShotWeapon', function(weapon)
+   discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon , '7419530', 'shooting') --Sending to shooting channel
+end)
 
+-- Getting exports from clientside
 RegisterServerEvent('ClientDiscord')
 AddEventHandler('ClientDiscord', function(message, channel)
    discordLog(message, channel)
 end)
 
+-- Send message when a resource is being stopped
 AddEventHandler('onResourceStop', function (resourceName)
     discordLog('**' .. resourceName .. '** has been stopped.', '9936031', 'resources')
 end)
 
+-- Send message when a resource is being started
 AddEventHandler('onResourceStart', function (resourceName)
     Wait(100)
     discordLog('**' .. resourceName .. '** has been started.', '9936031', 'resources')
