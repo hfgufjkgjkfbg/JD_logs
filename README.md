@@ -45,3 +45,8 @@ local webhooks = {
 ```
 
 ### My Discord: https://discord.gg/m4BvmkG
+
+### Images
+![Connecting](https://gyazo.com/d72db089cd6f31f820da097743461b89.png)
+![Chat](https://gyazo.com/f0d3381fbcb8eef23ae6d1ed436ac919.png)
+![Disconnect](https://gyazo.com/38a62025385f7992876ad82b986638cf.png)
