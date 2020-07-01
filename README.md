@@ -18,8 +18,31 @@ This is a server log script for FiveM, which is used to log certain actions that
 - Put it in the server resource directory
 
 ### Installation
-- Add this to your `server.cfg`:
-
+- Add this to your `server.cfg`
 ```
 ensure logs
 ```
+
+### Adding more logs
+
+- Add the following code to your existing resource where you execude the code
+```
+exports.JD_logs:discord('<MESSAGE_YOU_WANT_TO_POST_IN_THE_EMBED>', '1752220', '<WEBHOOK_CHANNEL>')
+```
+- Create a discord channel with webhook and add this to the webhooks.
+```
+local webhooks = {
+	all = "<DISCORD_WEBHOOK>",
+	chat = "<DISCORD_WEBHOOK>",
+	joins = "<DISCORD_WEBHOOK>",
+	leaving = "<DISCORD_WEBHOOK>",
+	deaths = "<DISCORD_WEBHOOK>",
+	shooting = "<DISCORD_WEBHOOK>",
+	resources = "<DISCORD_WEBHOOK>",
+	<YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>", <------
+}
+
+```
+
+# Support
+https://discord.gg/m4BvmkG
