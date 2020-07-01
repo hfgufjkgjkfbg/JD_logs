@@ -17,7 +17,7 @@ This is a server log script for FiveM, which is used to log certain actions that
 - Download the files
 - Put it in the server resource directory
 
-## Installation
+### Installation
 - Add this to your `server.cfg`:
 
 ```
