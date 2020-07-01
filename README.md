@@ -39,9 +39,14 @@ local webhooks = {
 	deaths = "<DISCORD_WEBHOOK>",
 	shooting = "<DISCORD_WEBHOOK>",
 	resources = "<DISCORD_WEBHOOK>",
-	<YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>", <------
+	<WEBHOOK_CHANNEL> = "<DISCORD_WEBHOOK>", <------
 }
 
 ```
 
 ### My Discord: https://discord.gg/m4BvmkG
+
+### Images
+![Connecting](https://gyazo.com/d72db089cd6f31f820da097743461b89.png)
+![Chat](https://gyazo.com/f0d3381fbcb8eef23ae6d1ed436ac919.png)
+![Disconnect](https://gyazo.com/38a62025385f7992876ad82b986638cf.png)
