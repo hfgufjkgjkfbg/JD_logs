@@ -44,4 +44,4 @@ local webhooks = {
 
 ```
 
-# My Discord: https://discord.gg/m4BvmkG
+### My Discord: https://discord.gg/m4BvmkG
