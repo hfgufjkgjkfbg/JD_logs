@@ -8,7 +8,7 @@ local webhooks = {
 	deaths = "<DISCORD_WEBHOOK>",
 	shooting = "<DISCORD_WEBHOOK>",
 	resources = "<DISCORD_WEBHOOK>",
-	
+
 	-- You can add more logs by using exports in other resources
 	-- When the action is done call the function below in the script to send the information to JD_logs
 	-- exports.JD_logs:discord('<MESSAGE_YOU_WANT_TO_POST_IN_THE_EMBED>', '1752220', '<WEBHOOK_CHANNEL>')
@@ -16,7 +16,7 @@ local webhooks = {
 	-- <YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>",
 }
 
-function sanitize(string) 
+function sanitize(string)
     return string:gsub('%@', '')
 end
 
@@ -37,7 +37,7 @@ end)
 -- Sending message to the All Logs channel and to the channel it has listed
 function discordLog(message, color, channel)
 	PerformHttpRequest(webhooks['all'], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = avatar}), { ['Content-Type'] = 'application/json' })
-	PerformHttpRequest(webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = avatar}), { ['Content-Type'] = 'application/json' })    
+	PerformHttpRequest(webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = communtiylogo,},}}, avatar_url = avatar}), { ['Content-Type'] = 'application/json' })
 end
 
 -- Event Handlers
@@ -80,8 +80,8 @@ end)
 
 -- Getting exports from clientside
 RegisterServerEvent('ClientDiscord')
-AddEventHandler('ClientDiscord', function(message, channel)
-   discordLog(message, channel)
+AddEventHandler('ClientDiscord', function(message, color, channel)
+   discordLog(message, color,  channel)
 end)
 
 -- Send message when a resource is being stopped
