@@ -15,12 +15,12 @@ This is a server log script for FiveM, which is used to log certain actions that
 ## Download & Installation
 
 - Download the files
-- Put it in the server resource directory
+- Put the JD_logs folder in the server resource directory
 
 ### Installation
 - Add this to your `server.cfg`
 ```
-ensure logs
+ensure JD_logs
 ```
 
 # Adding more logs
