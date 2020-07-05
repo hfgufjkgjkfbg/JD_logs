@@ -14,11 +14,9 @@ This is a server log script for FiveM, which is used to log certain actions that
 
 ## Download & Installation
 
-- Download the files
-- Put the JD_logs folder in the server resource directory
-
-### Installation
-- Add this to your `server.cfg`
+1. Download the files
+2. Put the JD_logs folder in the server resource directory
+3. Add this to your `server.cfg`
 ```
 ensure JD_logs
 ```
