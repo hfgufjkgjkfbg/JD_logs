@@ -8,6 +8,7 @@ server_script 'config.lua'
 
 -- Server Scripts
 server_script 'server/server.lua'
+server_script 'versioncheck.lua'
 
 --Client Scripts
 client_script 'client/client.lua'
