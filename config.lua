@@ -4,6 +4,8 @@ Config.AllLogs = true                                                       -- E
 Config.avatar = "https://gyazo.com/3b6671e49b91493136d70f09795f5cfd.png"    -- Bot Avatar
 Config.communtiylogo = ""                                                   -- Icon in bottom left off the embed
 
+Config.weaponLog = true  			-- set to false to disable the shooting weapon logs
+
 Config.webhooks = {
 	all = "<DISCORD_WEBHOOK>",
 	chat = "<DISCORD_WEBHOOK>",

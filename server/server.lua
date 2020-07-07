@@ -18,7 +18,9 @@ end)
 
 -- Sending message to the All Logs channel and to the channel it has listed
 function discordLog(message, color, channel)
+  if Config.AllLogs then
 	PerformHttpRequest(Config.webhooks['all'], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = Config.communtiylogo,},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
+  end
 	PerformHttpRequest(Config.webhooks[channel], function(err, text, headers) end, 'POST', json.encode({username = "Server Logs", embeds = {{["color"] = color,["title"] = "Server Logs",["description"] = "".. message .."",["footer"] = {["text"] = os.date(),["icon_url"] = Config.communtiylogo,},}}, avatar_url = Config.avatar}), { ['Content-Type'] = 'application/json' })
 end
 
@@ -57,7 +59,9 @@ end)
 -- Send message when Player fires a weapon
 RegisterServerEvent('playerShotWeapon')
 AddEventHandler('playerShotWeapon', function(weapon)
-   discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'' , '7419530', 'shooting') --Sending to shooting channel
+    if Config.weaponLog then
+    discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'' , '7419530', 'shooting') --Sending to shooting channel
+    end
 end)
 
 -- Getting exports from clientside
