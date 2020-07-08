@@ -1,18 +1,42 @@
 # JD_logs
+<h4 align="center">
+	<a href="#download--installation">Download & Installation</a>
+	|
+	<a href="#adding-more-logs">Adding more logs</a>
+	|
+	<a href="#images">Images</a>
+	|
+	<a href="https://discord.gg/m4BvmkG">Discord</a>
+</h4>
+<h4 align="center">
 This is a server log script for FiveM, which is used to log certain actions that are being made in the server.
-
+</h5>
 
 ### Requirements
 - A Discord Server
 - FiveM FXServer
 
-### Features
+### V1.0.2
+- Added more Customizations
+	- Bot's Username
+	- Bot's Avatar
+	- Embed Community Name
+	- Embed Community Logo
+	- Color settings for default Events
+- Added Player ID to default Events
+- Added Option to enable/disable Player ID
+- Added option to enable/disable Steam ID
+
+### V1.0.1
+- Added option to disable Shooting Logs
+
+### V1.0.0
 - All log channel
 - Log to seperate channels
 - Log from server or client side
 - Easy changeble Avatar and Username
 
-## Download & Installation
+# Download & Installation
 
 1. Download the files
 2. Put the JD_logs folder in the server resource directory
@@ -45,6 +69,4 @@ local webhooks = {
 ### My Discord: https://discord.gg/m4BvmkG
 
 ### Images
-![Connecting](https://gyazo.com/d72db089cd6f31f820da097743461b89.png)
-![Chat](https://gyazo.com/f0d3381fbcb8eef23ae6d1ed436ac919.png)
-![Disconnect](https://gyazo.com/38a62025385f7992876ad82b986638cf.png)
+![JD_logs_Image](http://jokedevil.com/img/JD_logs.png)
