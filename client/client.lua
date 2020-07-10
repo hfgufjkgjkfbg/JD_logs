@@ -97,11 +97,19 @@ Citizen.CreateThread(function()
 			Citizen.Wait(1)
 			killer = GetPedSourceOfDeath(playerPed)
 			Citizen.Wait(1)
-			killername = GetPlayerName(PlayerId(killer))
-			if killer == playerPed then
+			for _, player in ipairs(GetActivePlayers()) do
+				if killer == GetPlayerPed(player) then
+					killername = GetPlayerName(player)
+				end
+			end
+			if GetPlayerServerId(PlayerId(playerPed)) == GetPlayerServerId(killer) then
 				TriggerServerEvent('playerDied',0,0,nil,nil)
 			elseif killername then
-				TriggerServerEvent('playerDied',killername,1,hashToWeapon(GetPedCauseOfDeath(playerPed)),GetPlayerServerId(PlayerId(killer)))
+			for _, player in ipairs(GetActivePlayers()) do
+				if killer == GetPlayerPed(player) then
+				TriggerServerEvent('playerDied',killername,1,hashToWeapon(GetSelectedPedWeapon(killer)),GetPlayerServerId(player))
+				end
+			end
 			else
 				TriggerServerEvent('playerDied',0,2,nil,nil)
 			end
