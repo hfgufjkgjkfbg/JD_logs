@@ -5,6 +5,8 @@
 	<a href="#adding-more-logs">Adding more logs</a>
 	|
 	<a href="#images">Images</a>
+	|
+	<a href="https://docs.jokedevil.com/JD_logs">Documentation</a>
 </h4>
 <h4 align="center">
 	<a href="https://github.com/JokeDevil/JD_logs/releases/latest" title=""><img alt="Licence" src="https://img.shields.io/github/release/JokeDevil/JD_logs.svg"></a>
@@ -18,6 +20,14 @@ This is a server log script for FiveM, which is used to log certain actions that
 ### Requirements
 - A Discord Server
 - FiveM FXServer
+
+### V1.0.3
+- Added Discord Identifier
+- Added Steam Profile URL
+- Fixed Death Reason
+	- Player commited suicide
+	- Player was murdered
+	- Player Died (Other reasons like getting run over or random explosions)
 
 ### V1.0.2
 - Added more Customizations

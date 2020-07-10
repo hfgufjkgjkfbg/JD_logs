@@ -79,7 +79,12 @@ local weapons = {
 	[126349499] = 'Snowball',
 	[-37975472] = 'SmokeGrenade',
 	[-1169823560] = 'Pipebomb',
-	[-72657034] = 'Parachute'
+	[-72657034] = 'Parachute',
+	[-608341376] = 'CombatMG MK2',
+	[1198256469] = 'UnholyHellbringer',
+	[-1075685676] = 'Pistol MK2',
+	[-2009644972] = 'SNSPistol MK2',
+	[-598887786] = 'Revolver MK2',
 }
 
 Citizen.CreateThread(function()
@@ -87,21 +92,18 @@ Citizen.CreateThread(function()
 	alreadyDead = false
     while true do
         Citizen.Wait(50)
-		local playerPed = GetPlayerPed(-1)
+		local playerPed = GetPlayerPed(PlayerId())
 		if IsEntityDead(playerPed) and not alreadyDead then
-			killer = GetPedKiller(playerPed)
-			killername = false
-			for id = 0, 64 do
-				if killer == GetPlayerPed(id) then
-					killername = GetPlayerName(id)
-				end
-			end
+			Citizen.Wait(1)
+			killer = GetPedSourceOfDeath(playerPed)
+			Citizen.Wait(1)
+			killername = GetPlayerName(PlayerId(killer))
 			if killer == playerPed then
-				TriggerServerEvent('playerDied',0,0,nil)
+				TriggerServerEvent('playerDied',0,0,nil,nil)
 			elseif killername then
-				TriggerServerEvent('playerDied',killername,1,hashToWeapon(GetPedCauseOfDeath(playerPed)))
+				TriggerServerEvent('playerDied',killername,1,hashToWeapon(GetPedCauseOfDeath(playerPed)),GetPlayerServerId(PlayerId(killer)))
 			else
-				TriggerServerEvent('playerDied',0,2,nil)
+				TriggerServerEvent('playerDied',0,2,nil,nil)
 			end
 			alreadyDead = true
 		end

@@ -28,95 +28,73 @@ end
 
 -- Send message when Player connects to the server.
 AddEventHandler("playerConnecting", function(name, setReason, deferrals)
-	if Config.steamID and Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.joinColor, 'joins')
-	elseif Config.steamID and not Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.joinColor, 'joins')
-	elseif Config.playerID and not Config.steamID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.', Config.joinColor, 'joins')
-	else
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.', Config.joinColor, 'joins')
-	end
+	local ids = ExtractIdentifiers(source)
+	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
+	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
+	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
+	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.joinColor, 'joins')
 end)
 
 -- Send message when Player disconnects from the server
 AddEventHandler('playerDropped', function(reason)
-	if Config.steamID and Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.leaveColor, 'leaving')
-	elseif Config.steamID and not Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.leaveColor, 'leaving')
-	elseif Config.playerID and not Config.steamID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')\n **PlayerID: **'.. source ..'', Config.leaveColor, 'leaving')
-	else
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')', Config.leaveColor, 'leaving')
-	end
+	local ids = ExtractIdentifiers(source)
+	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
+	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
+	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
+	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.leaveColor, 'leaving')
 end)
 
 -- Send message when Player creates a chat message (Does not show commands)
 AddEventHandler('chatMessage', function(source, name, msg)
-	if Config.steamID and Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.chatColor, 'chat')
-	elseif Config.steamID and not Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.chatColor, 'chat')
-	elseif Config.playerID and not Config.steamID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``\n **PlayerID: **'.. source ..'', Config.chatColor, 'chat')
-	else
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``', Config.chatColor, 'chat')
-	end
+	local ids = ExtractIdentifiers(source)
+	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
+	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
+	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
+	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+
+	discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.chatColor, 'chat')
 end)
 
 -- Send message when Player died (including reason/killer check) (Not always working)
 RegisterServerEvent('playerDied')
-AddEventHandler('playerDied',function(killer,reason,cause)
+AddEventHandler('playerDied',function(killer,reason,cause,killerid)
+	local ids = ExtractIdentifiers(source)
+
+	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
+	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
+	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
+	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+
 	if killer == "**Invalid**" then
 		reason = 2
 	end
+
 	if reason == 0 then  -- Suicide
-		if Config.steamID and Config.playerID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.steamID and not Config.playerID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.playerID and not Config.steamID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.\n **PlayerID: **'.. source ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		else
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited suicide.', Config.deathColor, 'deaths') -- sending to deaths channel
-		end
+        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited `suicide`.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
 	elseif reason == 1 then -- Killed by other player
-		if Config.steamID and Config.playerID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'\n **KillerID: **'.. killer ..'\n **Killer SteamID: **'.. GetPlayerIdentifiers(killer)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.steamID and not Config.playerID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'\n **Killer SteamID: **'.. GetPlayerIdentifiers(killer)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.playerID and not Config.steamID then
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')\n **PlayerID: **'.. source ..'\n **KillerID: **'.. killer ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		else
-		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been killed by ' .. killer .. ' (' .. cause .. ')', Config.deathColor, 'deaths') -- sending to deaths channel
-		end
+		local ids2 = ExtractIdentifiers(killerid)
+		if Config.discordID then _KillDiscordID ="\n**Discord ID:** <@" ..ids2.discord:gsub("discord:", "")..">" else _KillDiscordID = "" end
+		if Config.steamID then _KillSteamID ="\n**Steam ID:** " ..ids2.steam.."" else _KillSteamID = "" end
+		if Config.steamURL then _KillSteamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids2.steam:gsub("steam:", ""),16).."" else _KillSteamURL = "" end
+		if Config.playerID then _killPlayerID ="\n**Playeer ID:** " ..killerid.."" else _killPlayerID = "" end
+		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been `murdered` by ' .. killer .. ' `(' .. cause .. ')`\n\n**[Player INFO]**'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'\n\n**[Killer INFO]**'.._killPlayerID..''.. _KillDiscordID..''.._KillSteamID..''.._KillSteamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
 	else -- When gets killed by something else (like getting run over by a car)
-		if Config.steamID and Config.playerID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.steamID and not Config.playerID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		elseif Config.playerID and not Config.steamID then
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.\n **PlayerID: **'.. source ..'', Config.deathColor, 'deaths') -- sending to deaths channel
-		else
-        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has died.', Config.deathColor, 'deaths') -- sending to deaths channel
-		end
+        discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has `died`.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
 	end
 end)
 
 -- Send message when Player fires a weapon
 RegisterServerEvent('playerShotWeapon')
 AddEventHandler('playerShotWeapon', function(weapon)
-    if Config.weaponLog then
-		if Config.steamID and Config.playerID then
-			discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '\n **PlayerID: **'.. source ..'\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'' , Config.shootingColor, 'shooting')
-		elseif Config.steamID and not Config.playerID then
-			discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '\n **SteamID: **'.. GetPlayerIdentifiers(source)[1] ..'' , Config.shootingColor, 'shooting')
-		elseif Config.playerID and not Config.steamID then
-			discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '\n **PlayerID: **'.. source ..'' , Config.shootingColor, 'shooting')
-		else
-			discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a ' .. weapon .. '' , Config.shootingColor, 'shooting')
-		end
+	local ids = ExtractIdentifiers(source)
+	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
+	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
+	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
+	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	if Config.weaponLog then
+		discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a `' .. weapon .. '`'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.shootingColor, 'shooting')
     end
 end)
 
@@ -136,3 +114,40 @@ AddEventHandler('onResourceStart', function (resourceName)
     Wait(100)
     discordLog('**' .. resourceName .. '** has been started.', Config.resourceColor, 'resources')
 end)
+
+RegisterServerEvent('JDlogs:GetIdentifiers')
+AddEventHandler('JDlogs:GetIdentifiers', function(src)
+	local ids = ExtractIdentifiers(src)
+	return ids
+end)
+
+function ExtractIdentifiers(src)
+    local identifiers = {
+        steam = "",
+        ip = "",
+        discord = "",
+        license = "",
+        xbl = "",
+        live = ""
+    }
+
+    for i = 0, GetNumPlayerIdentifiers(src) - 1 do
+        local id = GetPlayerIdentifier(src, i)
+
+        if string.find(id, "steam") then
+            identifiers.steam = id
+        elseif string.find(id, "ip") then
+            identifiers.ip = id
+        elseif string.find(id, "discord") then
+            identifiers.discord = id
+        elseif string.find(id, "license") then
+            identifiers.license = id
+        elseif string.find(id, "xbl") then
+            identifiers.xbl = id
+        elseif string.find(id, "live") then
+            identifiers.live = id
+        end
+    end
+
+    return identifiers
+end

@@ -9,7 +9,9 @@ Config.communtiyLogo = "https://via.placeholder.com/30x30"		-- Icon top of the E
 
 Config.weaponLog = true  			-- set to false to disable the shooting weapon logs
 Config.playerID = true				-- set to false to disable Player ID in the logs
-Config.steamID = true				-- set to false to disable Steam D in the logs
+Config.steamID = true				-- set to false to disable Steam ID in the logs
+Config.steamURL = true				-- set to false to disable Steam URL in the logs
+Config.discordID = true				-- set to false to disable Discord ID in the logs
 
 
 -- Change color of the default embeds here
@@ -20,6 +22,7 @@ Config.chatColor = "10592673"		-- Chat Message
 Config.shootingColor = "10373"		-- Shooting a weapon
 Config.deathColor = "000000"		-- Player Died
 Config.resourceColor = "15461951"	-- Resource Stopped/Started
+
 
 
 Config.webhooks = {
