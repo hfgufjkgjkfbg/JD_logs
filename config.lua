@@ -1,6 +1,7 @@
 Config = {}
 
 Config.AllLogs = true											-- Enable/Disable All Logs Channel
+Config.postal = true  											-- set to false if you want to disable nerest postal (https://forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-2/147458)
 Config.username = "Bot Username Here" 							-- Bot Username
 Config.avatar = "https://via.placeholder.com/30x30"				-- Bot Avatar
 Config.communtiyName = "Community Name Here"					-- Icon top of the Embed
@@ -26,7 +27,7 @@ Config.resourceColor = "15461951"	-- Resource Stopped/Started
 
 
 Config.webhooks = {
-	all = "<DISCORD_WEBHOOK>",
+	all = "https://discordapp.com/api/webhooks/732963295526649906/pQVBgklqH49oebw4TW6ReMJWtXxbUYug56eyI5xspAfopnOCWzlUYTynavc4q-qvfOuk",
 	chat = "<DISCORD_WEBHOOK>",
 	joins = "<DISCORD_WEBHOOK>",
 	leaving = "<DISCORD_WEBHOOK>",

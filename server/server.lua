@@ -29,30 +29,29 @@ end
 -- Send message when Player connects to the server.
 AddEventHandler("playerConnecting", function(name, setReason, deferrals)
 	local ids = ExtractIdentifiers(source)
-	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
-	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
-	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
-	discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.joinColor, 'joins')
+	if Config.discordID then if ids.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	discordLog('**' .. sanitize(GetPlayerName(source)) .. '** is connecting to the server.'.. _discordID..''.._steamID..''.._steamURL..'', Config.joinColor, 'joins')
 end)
 
 -- Send message when Player disconnects from the server
 AddEventHandler('playerDropped', function(reason)
 	local ids = ExtractIdentifiers(source)
-	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
-	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
-	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	if Config.discordID then if ids.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	if Config.playerID then _playerID ="\n**Player ID:** " ..source.."" else _playerID = "" end
 	discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has left the server. (Reason: ' .. reason .. ')'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.leaveColor, 'leaving')
 end)
 
 -- Send message when Player creates a chat message (Does not show commands)
 AddEventHandler('chatMessage', function(source, name, msg)
 	local ids = ExtractIdentifiers(source)
-	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
-	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
-	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	if Config.discordID then if ids.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	if Config.playerID then _playerID ="\n**Player ID:** " ..source.."" else _playerID = "" end
 
 	discordLog('**' .. sanitize(GetPlayerName(source)) .. '**: ``' .. msg .. '``'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.chatColor, 'chat')
 end)
@@ -61,11 +60,10 @@ end)
 RegisterServerEvent('playerDied')
 AddEventHandler('playerDied',function(killer,reason,cause,killerid)
 	local ids = ExtractIdentifiers(source)
-
-	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
-	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
-	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	if Config.discordID then if ids.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	if Config.playerID then _playerID ="\n**Player ID:** " ..source.."" else _playerID = "" end
 
 	if killer == "**Invalid**" then
 		reason = 2
@@ -74,11 +72,11 @@ AddEventHandler('playerDied',function(killer,reason,cause,killerid)
 	if reason == 0 then  -- Suicide
         discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has commited `suicide`.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
 	elseif reason == 1 then -- Killed by other player
-		local ids2 = ExtractIdentifiers(killerid)
-		if Config.discordID then _KillDiscordID ="\n**Discord ID:** <@" ..ids2.discord:gsub("discord:", "")..">" else _KillDiscordID = "" end
-		if Config.steamID then _KillSteamID ="\n**Steam ID:** " ..ids2.steam.."" else _KillSteamID = "" end
-		if Config.steamURL then _KillSteamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids2.steam:gsub("steam:", ""),16).."" else _KillSteamURL = "" end
-		if Config.playerID then _killPlayerID ="\n**Playeer ID:** " ..killerid.."" else _killPlayerID = "" end
+	local ids2 = ExtractIdentifiers(killerid)
+	if Config.discordID then if ids2.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids2.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids2.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids2.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids2.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids2.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	if Config.playerID then _playerID ="\n**Player ID:** " ..source.."" else _playerID = "" end
 		discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has been `murdered` by ' .. killer .. ' `(' .. cause .. ')`\n\n**[Player INFO]**'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'\n\n**[Killer INFO]**'.._killPlayerID..''.. _KillDiscordID..''.._KillSteamID..''.._KillSteamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
 	else -- When gets killed by something else (like getting run over by a car)
         discordLog('**' .. sanitize(GetPlayerName(source)) .. '** has `died`.'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.deathColor, 'deaths') -- sending to deaths channel
@@ -89,12 +87,14 @@ end)
 RegisterServerEvent('playerShotWeapon')
 AddEventHandler('playerShotWeapon', function(weapon)
 	local ids = ExtractIdentifiers(source)
-	if Config.discordID then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "" end
-	if Config.steamID then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "" end
-	if Config.steamURL then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "" end
-	if Config.playerID then _playerID ="\n**Playeer ID:** " ..source.."" else _playerID = "" end
+	local postal = getPlayerLocation(source)
+	if Config.postal then _postal = "\n**Nearest Postal:** ".. postal .."" else _postal = "" end
+	if Config.discordID then if ids.discord ~= "" then _discordID ="\n**Discord ID:** <@" ..ids.discord:gsub("discord:", "")..">" else _discordID = "\n**Discord ID:** N/A" end else _steamID = "" end
+	if Config.steamID then if ids.steam ~= "" then _steamID ="\n**Steam ID:** " ..ids.steam.."" else _steamID = "\n**Steam ID:** N/A" end else _steamID = "" end
+	if Config.steamURL then  if ids.steam ~= "" then _steamURL ="\nhttps://steamcommunity.com/profiles/" ..tonumber(ids.steam:gsub("steam:", ""),16).."" else _steamURL = "\n**Steam URL:** N/A" end else _steamID = "" end
+	if Config.playerID then _playerID ="\n**Player ID:** " ..source.."" else _playerID = "" end
 	if Config.weaponLog then
-		discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a `' .. weapon .. '`'.._playerID..''.. _discordID..''.._steamID..''.._steamURL..'', Config.shootingColor, 'shooting')
+		discordLog('**' .. sanitize(GetPlayerName(source))  .. '** fired a `' .. weapon .. '`'.._playerID..''.. _postal ..''.. _discordID..''.._steamID..''.._steamURL..'', Config.shootingColor, 'shooting')
     end
 end)
 
@@ -151,3 +151,69 @@ function ExtractIdentifiers(src)
 
     return identifiers
 end
+
+function getPlayerLocation(src)
+
+local raw = LoadResourceFile(GetCurrentResourceName(), GetResourceMetadata(GetCurrentResourceName(), 'postal_file'))
+local postals = json.decode(raw)
+local nearest = nil
+
+local player = src
+local ped = GetPlayerPed(player)
+local playerCoords = GetEntityCoords(ped)
+
+local x, y = table.unpack(playerCoords)
+
+	local ndm = -1
+	local ni = -1
+	for i, p in ipairs(postals) do
+		local dm = (x - p.x) ^ 2 + (y - p.y) ^ 2
+		if ndm == -1 or dm < ndm then
+			ni = i
+			ndm = dm
+		end
+	end
+
+	if ni ~= -1 then
+		local nd = math.sqrt(ndm)
+		nearest = {i = ni, d = nd}
+	end
+	_nearest = postals[nearest.i].code
+	return _nearest
+end
+
+-- version check
+Citizen.CreateThread(
+	function()
+		local vRaw = LoadResourceFile(GetCurrentResourceName(), 'version.json')
+		if vRaw and config.versionCheck then
+			local v = json.decode(vRaw)
+			PerformHttpRequest(
+				'https://raw.githubusercontent.com/JokeDevil/JD_logs/master/version.json',
+				function(code, res, headers)
+					if code == 200 then
+						local rv = json.decode(res)
+						if rv.version ~= v.version then
+							print(
+								([[
+
+-------------------------------------------------------
+JD_logs
+UPDATE: %s AVAILABLE
+CHANGELOG: %s
+-------------------------------------------------------
+]]):format(
+									rv.version,
+									rv.changelog
+								)
+							)
+						end
+					else
+						print('JD_logs unable to check version')
+					end
+				end,
+				'GET'
+			)
+		end
+	end
+)
