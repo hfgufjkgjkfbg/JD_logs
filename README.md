@@ -21,6 +21,11 @@ This is a server log script for FiveM, which is used to log certain actions that
 - A Discord Server
 - FiveM FXServer
 
+### V1.0.4
+- Added Nearest Postal For [This Postal Map](https://forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-2/147458)
+- Added check if the identifier is available ( Prevents some errors :slight_smile: )
+- Fixed some small bugs
+
 ### V1.0.3
 - Added Discord Identifier
 - Added Steam Profile URL
