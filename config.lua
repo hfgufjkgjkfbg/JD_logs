@@ -9,6 +9,8 @@ Config.communtiyLogo = "https://via.placeholder.com/30x30"		-- Icon top of the E
 
 
 Config.weaponLog = true  			-- set to false to disable the shooting weapon logs
+Config.weaponLogDelay = 1000		-- delay to wait after someone fired a weapon to check again in ms (put to 0 to disable) Best to keep this at atleast 1000
+
 Config.playerID = true				-- set to false to disable Player ID in the logs
 Config.steamID = true				-- set to false to disable Steam ID in the logs
 Config.steamURL = true				-- set to false to disable Steam URL in the logs
@@ -27,7 +29,7 @@ Config.resourceColor = "15461951"	-- Resource Stopped/Started
 
 
 Config.webhooks = {
-	all = "https://discordapp.com/api/webhooks/732963295526649906/pQVBgklqH49oebw4TW6ReMJWtXxbUYug56eyI5xspAfopnOCWzlUYTynavc4q-qvfOuk",
+	all = "<DISCORD_WEBHOOK>",
 	chat = "<DISCORD_WEBHOOK>",
 	joins = "<DISCORD_WEBHOOK>",
 	leaving = "<DISCORD_WEBHOOK>",
@@ -41,3 +43,8 @@ Config.webhooks = {
   -- Then create a webhook for the action you just executed
   -- <YOUR NEW WEBHOOK NAME> = "<DISCORD_WEBHOOK>",
   }
+
+
+ --Debug shizzels :D
+Config.debug = false
+Config.versionCheck = "1.0.4b"
