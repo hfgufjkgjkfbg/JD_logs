@@ -235,8 +235,8 @@ function hashToWeapon(hash)
 	return weapons[hash]
 end
 
-exports('discord', function(message, color, channel)
-	TriggerServerEvent('ClientDiscord', message, color, channel)
+exports('discord', function(message, id, id2, color, channel)
+	TriggerServerEvent('ClientDiscord', message, id, id2, color, channel)
 end)
 
 function IsMelee(Weapon)

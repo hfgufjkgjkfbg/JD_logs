@@ -47,4 +47,4 @@ Config.webhooks = {
 
  --Debug shizzels :D
 Config.debug = false
-Config.versionCheck = "1.0.4b"
+Config.versionCheck = "1.1.0"
