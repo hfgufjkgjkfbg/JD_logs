@@ -4,8 +4,6 @@
 	<a href="#adding-more-logs">Adding more logs</a>
 	|
 	<a href="#images">Images</a>
-	|
-	<a href="https://docs.jokedevil.com/JD_logs">Documentation</a>
 </h4>
 <h4 align="center">
 	<a href="https://github.com/JokeDevil/JD_logs/releases/latest" title=""><img alt="Licence" src="https://img.shields.io/github/release/JokeDevil/JD_logs.svg"></a>
@@ -27,7 +25,6 @@ This is a server log script for FiveM, which is used to log certain actions that
 
 ### V1.1.0
 - Reworked Export function. (Now with identifier support)
-	- See docs for more info (<a href="https://docs.jokedevil.com/JD_logs#section4">Documentation</a>)
 
 ### V1.0.4
 - Added Nearest Postal For [This Postal Map](https://forum.cfx.re/t/release-postal-code-map-minimap-new-improved-v1-2/147458)
