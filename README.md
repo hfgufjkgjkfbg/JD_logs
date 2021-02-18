@@ -11,10 +11,6 @@
 	<a href="https://discord.gg/m4BvmkG" title=""><img alt="Discord Status" src="https://discordapp.com/api/guilds/721339695199682611/widget.png"></a>
 </h4>
 
-<h1 align="center">
-<b>Support is only for Patreons!</b><br>
-<a href="https://patreon.com/JokeDevil"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3DJokeDevil%26type%3Dpatrons&style=flat"></a>
-</h1>
 <h4 align="center">
 This is a server log script for FiveM, which is used to log certain actions that are being made in the server.
 </h5>
