@@ -1,6 +1,6 @@
 author 'JokeDevil'
 description 'FXServer logs to Discord (https://www.jokedevil.com/)'
-version '1.1.0'
+version '1.1.1'
 url 'https://jokedevil.com'
 
 -- Config
@@ -9,7 +9,6 @@ client_script 'config.lua'
 
 -- Server Scripts
 server_script 'server/server.lua'
-server_script 'versioncheck.lua'
 
 --Client Scripts
 client_script 'client/client.lua'

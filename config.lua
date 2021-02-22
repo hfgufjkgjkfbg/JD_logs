@@ -18,13 +18,13 @@ Config.discordID = true				-- set to false to disable Discord ID in the logs
 
 
 -- Change color of the default embeds here
--- It used Decimal color codes witch you can get and convert here: https://jokedevil.com/colorPicker
-Config.joinColor = "3863105" 		-- Player Connecting
-Config.leaveColor = "15874618"		-- Player Disconnected
-Config.chatColor = "10592673"		-- Chat Message
-Config.shootingColor = "10373"		-- Shooting a weapon
-Config.deathColor = "000000"		-- Player Died
-Config.resourceColor = "15461951"	-- Resource Stopped/Started
+-- It used Decimal or Hex color codes. They will both work.
+Config.joinColor = "#3AF241" 	 	-- Player Connecting
+Config.leaveColor = "#F23A3A"		-- Player Disconnected
+Config.chatColor = "#A1A1A1"		-- Chat Message
+Config.shootingColor = "#2E66F2"	-- Shooting a weapon
+Config.deathColor = "#000000"		-- Player Died
+Config.resourceColor = "#EBEE3F"	-- Resource Stopped/Started
 
 
 
@@ -36,11 +36,9 @@ Config.webhooks = {
 	deaths = "DISCORD_WEBHOOK",
 	shooting = "DISCORD_WEBHOOK",
 	resources = "DISCORD_WEBHOOK",
-
-  -- How you add more logs is explained on https://docs.jokedevil.com/JD_logs
-  }
+}
 
 
  --Debug shizzels :D
 Config.debug = false
-Config.versionCheck = "1.1.0"
+Config.versionCheck = "1.1.1"
