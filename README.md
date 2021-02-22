@@ -19,6 +19,10 @@ This is a server log script for FiveM, which is used to log certain actions that
 - A Discord Server
 - FiveM FXServer
 
+### V1.1.1
+- Added hex color code support. (Old decimal color codes will still work.)
+- Added option to hide player info on exports. (Very simple just change the `PLAYER_ID` to `0` and it wont show any info.)
+
 ### V1.1.0
 - Reworked Export function. (Now with identifier support)
 
