@@ -19,4 +19,4 @@ postal_file 'postals.json'
 file 'version.json'
 
 game 'gta5'
-fx_version 'bodacious'
+fx_version 'cerulean'

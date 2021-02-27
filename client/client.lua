@@ -138,7 +138,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 		if IsEntityDead(PlayerPedId()) then
-			Citizen.Wait(500)
+			Citizen.Wait(0)
 			local PedKiller = GetPedSourceOfDeath(PlayerPedId())
 			local killername = GetPlayerName(PedKiller)
 			DeathCauseHash = GetPedCauseOfDeath(PlayerPedId())

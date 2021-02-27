@@ -15,6 +15,8 @@ Config.playerID = true				-- set to false to disable Player ID in the logs
 Config.steamID = true				-- set to false to disable Steam ID in the logs
 Config.steamURL = true				-- set to false to disable Steam URL in the logs
 Config.discordID = true				-- set to false to disable Discord ID in the logs
+Config.license = true				-- set to false to disable license in the logs
+Config.IP = true					-- set to false to disable IP in the logs
 
 
 -- Change color of the default embeds here
@@ -41,4 +43,4 @@ Config.webhooks = {
 
  --Debug shizzels :D
 Config.debug = false
-Config.versionCheck = "1.1.1"
+Config.versionCheck = "1.1.2"

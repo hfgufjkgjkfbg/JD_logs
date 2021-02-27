@@ -1,5 +1,5 @@
 {
-	"date": "Feb 22, 2021",
+	"date": "Feb 27, 2021",
 	"version": "1.1.1",
-	"changelog": "Added hex color code support, Added optional function to hide data in exports."
+	"changelog": "Added License identifier and IP address option to logs."
 }
