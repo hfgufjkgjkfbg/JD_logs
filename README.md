@@ -72,7 +72,7 @@ ensure JD_logs
 
 - Add the following code to your existing resource where you execude the code
 ```
-exports.JD_logs:discord('MESSAGE_YOU_WANT_TO_POST_IN_THE_EMBED', PLAYER_ID, PLAYER_2_ID, 'DECIMAL_COLOR_CODE', 'WEBHOOK_CHANNEL'))
+exports.JD_logs:discord('MESSAGE_YOU_WANT_TO_POST_IN_THE_EMBED', PLAYER_ID, PLAYER_2_ID, 'DECIMAL_COLOR_CODE', 'WEBHOOK_CHANNEL')
 ```
 - Create a discord channel with webhook and add this to the webhooks.
 ```
