@@ -69,7 +69,7 @@ exports('discord', function(message, id, id2, color, channel)
 		if Config.license then if ids.license ~= "" then _license ="\n**License:** " ..ids.license else _license = "\n**License :** N/A" end else _license = "" end
 		if Config.IP then if ids.ip ~= "" then _ip ="\n**IP:** " ..ids.ip else _ip = "\n**IP :** N/A" end else _ip = "" end
 		if Config.playerID then _playerID ="\n**Player ID:** " ..id.."" else _playerID = "" end
-		local player1 = message..'\n'.._playerID..''.. _postal ..''.. _discordID..''.._steamID..''.._steamURL..''.._license..''.._ip
+		player1 = message..'\n'.._playerID..''.. _postal ..''.. _discordID..''.._steamID..''.._steamURL..''.._license..''.._ip
 		_message = player1
 	else
 		_message = message
@@ -85,7 +85,7 @@ exports('discord', function(message, id, id2, color, channel)
 		if Config.license then if ids2.license ~= "" then _license2 ="\n**License:** " ..ids2.license else _license2 = "\n**License :** N/A" end else _license2 = "" end
 		if Config.IP then if ids2.ip ~= "" then _ip2 ="\n**IP:** " ..ids2.ip else _ip2 = "\n**IP :** N/A" end else _ip2 = "" end
 		if Config.playerID then _playerID2 ="\n**Player ID:** " ..id2.."" else _playerID2 = "" end
-		local player2 = _playerID2..''.. _postal2 ..''.. _discordID2..''.._steamID2..''.._steamURL2..''.._license2..''.._ip2
+		player2 = _playerID2..''.. _postal2 ..''.. _discordID2..''.._steamID2..''.._steamURL2..''.._license2..''.._ip2
 		_message = player1..'\n'..player2
 	end
 
@@ -213,7 +213,7 @@ AddEventHandler('ClientDiscord', function(message, id, id2, color, channel)
 		if Config.license then if ids.license ~= "" then _license ="\n**License:** " ..ids.license else _license = "\n**License :** N/A" end else _license = "" end
 		if Config.IP then if ids.ip ~= "" then _ip ="\n**IP:** " ..ids.ip else _ip = "\n**IP :** N/A" end else _ip = "" end
 		if Config.playerID then _playerID ="\n**Player ID:** " ..id.."" else _playerID = "" end
-		local player1 = message..'\n'.._playerID..''.. _postal ..''.. _discordID..''.._steamID..''.._steamURL..''.._license..''.._ip
+		player1 = message..'\n'.._playerID..''.. _postal ..''.. _discordID..''.._steamID..''.._steamURL..''.._license..''.._ip
 		_message = player1
 	else
 		_message = message
@@ -229,7 +229,7 @@ AddEventHandler('ClientDiscord', function(message, id, id2, color, channel)
 		if Config.license then if ids2.license ~= "" then _license2 ="\n**License:** " ..ids2.license else _license2 = "\n**License :** N/A" end else _license2 = "" end
 		if Config.IP then if ids2.ip ~= "" then _ip2 ="\n**IP:** " ..ids2.ip else _ip2 = "\n**IP :** N/A" end else _ip2 = "" end
 		if Config.playerID then _playerID2 ="\n**Player ID:** " ..id2.."" else _playerID2 = "" end
-		local player2 = _playerID2..''.. _postal2 ..''.. _discordID2..''.._steamID2..''.._steamURL2..''.._license2..''.._ip2
+		player2 = _playerID2..''.. _postal2 ..''.. _discordID2..''.._steamID2..''.._steamURL2..''.._license2..''.._ip2
 		_message = player1..'\n'..player2
 	end
 
