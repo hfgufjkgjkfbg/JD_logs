@@ -190,18 +190,8 @@ Citizen.CreateThread(function()
 
 			if DeathReason == 'committed suicide' or DeathReason == 'died' then
 				TriggerServerEvent('playerDied',1,PlayerId(),_Killer,DeathReason,Weapon)
-				if Config.debug then
-					if Weapon then _Weapon = Weapon else _Weapon = "N/A" end if Killer then _killer = Killer else _killer = "N/A" end
-					ShowDebug('Event ~r~1~s~\nPlayerID: ~r~' ..source.. '~s~\nKillerID: ~r~'.._killer)
-					ShowDebug('DeathReason: ~r~'..DeathReason.. '~s~\nWeapon: ~r~'.._Weapon)
-				end
 			else
 				TriggerServerEvent('playerDied',2,PlayerId(),GetPlayerServerId(Killer),DeathReason,Weapon)
-				if Config.debug then
-					if Weapon then _Weapon = Weapon else _Weapon = "N/A" end if Killer then _killer = Killer else _killer = "N/A" end
-					ShowDebug('Event ~r~2~s~\nPlayerID: ~r~' ..PlayerId().. '~s~\nKillerID: ~r~'..GetPlayerServerId(Killer))
-					ShowDebug('DeathReason: ~r~'..DeathReason.. '~s~\nWeapon: ~r~'.._Weapon)
-				end
 			end
 			Killer = nil
 			DeathReason = nil
@@ -222,10 +212,7 @@ Citizen.CreateThread(function()
 
 		if IsPedShooting(playerped) then
 			TriggerServerEvent('playerShotWeapon', WeaponNames[tostring(GetSelectedPedWeapon(playerped))])
-			if Config.debug then
-				ShowDebug('Weapon: ~r~' ..WeaponNames[tostring(GetSelectedPedWeapon(playerped))])
-			end
-			Citizen.Wait(Config.weaponLogDelay)
+			Citizen.Wait(1000)
 		end
 	end
 

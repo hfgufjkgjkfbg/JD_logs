@@ -9,7 +9,6 @@ Config.communtiyLogo = "https://via.placeholder.com/30x30"		-- Icon top of the E
 
 
 Config.weaponLog = true  			-- set to false to disable the shooting weapon logs
-Config.weaponLogDelay = 1000		-- delay to wait after someone fired a weapon to check again in ms (put to 0 to disable) Best to keep this at atleast 1000
 
 Config.playerID = true				-- set to false to disable Player ID in the logs
 Config.steamID = true				-- set to false to disable Steam ID in the logs
@@ -43,4 +42,4 @@ Config.webhooks = {
 
  --Debug shizzels :D
 Config.debug = false
-Config.versionCheck = "1.1.2"
+Config.versionCheck = "1.1.3"
